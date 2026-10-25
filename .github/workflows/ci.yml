@@ -1,0 +1,19 @@
+name: ASDD CI Pipeline
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Verify application
+        run: test -f index.html
+
+      - name: Display success message
+        run: echo "CI Pipeline executed successfully!"
